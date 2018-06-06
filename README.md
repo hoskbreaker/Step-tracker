@@ -20,7 +20,7 @@ The aim of the project consists in develop a low-power system able to guide peop
 ## How to use:
 
 >1) Connect MSP430G2553 to PC.
->2) Load "ProcessingData" folder on the device with CCS (import-> CCS Project->...). 
+>2) Load "ProcessingSensors" folder on the device with CCS (import-> CCS Project->...). 
 >3) Open Qt Creator.
 >4) Load "Interface" folder on QT Creator.
 >5) Press Play
