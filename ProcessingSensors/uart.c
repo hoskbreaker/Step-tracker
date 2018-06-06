@@ -98,52 +98,6 @@ void printf_uart(char *fmt, ...)
 	va_end(arg);
 }
 
-//-------------------------AÑADIDAS PARA ACELEROMETRO---------------------------------------//
-// Print an array of char
-void UARTSendArray(unsigned char *TxArray, unsigned char ArrayLength){
-
-  while(ArrayLength--){         // Loop until StringLength == 0 and post decrement
-    while(!(IFG2 & UCA0TXIFG)); // Wait for TX buffer to be ready for new data
-    UCA0TXBUF = *TxArray;       // Write the character at the location specified py the pointer
-    TxArray++;                  //Increment the TxString pointer to point to the next character
-  }
-  IFG2 &= ~UCA0TXIFG;           // Clear USCI_A0 int flag
-}
-
-// Print int in hex
-void UARTSendInt(unsigned int x){
-  unsigned char buff[10];
-  unsigned char data[10];
-  unsigned char index = 0, i = 0;
-
-  while(x > 0) {
-    unsigned char val = x % 16;
-    if(val < 10)
-      buff[index] = 48+val;
-    else
-      buff[index] = 97+val-10;
-    index++;
-    x /= 16;
-  }
-  buff[index] = '\n';
-
-  while(index > 0) {
-    index--;
-    data[i] = buff[index];
-    i++;
-  }
-
-  if(i==0) {
-    data[0] = '0';
-    i++;
-  }
-  data[i] = '\n';
-  UARTSendArray(data, i+1);
-}
-
-//----------------------------------------------------------------------------//
-
-
 static void print_dec(unsigned int i)
 {
 	if (i > 9) {

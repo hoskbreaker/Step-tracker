@@ -25,12 +25,6 @@ public:
     ~Interface();
     void ClearData();
 
-
-protected:
-    void advance(int phase);
-
-
-
 private slots:
     void on_INICIO_clicked();
     void read();
@@ -42,10 +36,7 @@ private slots:
     void dirz(QString z, qreal &mz);
     void MoveBall(qreal w, qreal h);
     void LimitBall(qreal &h, qreal &w);
-
     void on_PAUSE_clicked();
-
-
     void on_GAME_clicked();
 
 private:
