@@ -1,0 +1,1 @@
+"./i2c.obj" "./main.obj" "./mma8451.obj" "./tsl2561.obj" "./uart.obj" "../lnk_msp430g2553.cmd" -llibc.a 
