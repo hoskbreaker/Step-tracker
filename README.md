@@ -1,7 +1,7 @@
 # Step-tracker
 Project created for Wireless and mobile networks' course from universitá degli studi di Milano
 
-##Explanation of the project
+## Explanation of the project
 The system consists in collecting data provided by sensors and send it to microcontroller for process it. Then, the data is sent to laptop, where data is graphically showed by one graphic interface, doing a simulation like a wearable.
 Devices could be divided in three parts:
 >-	Microcontroller: Takes the processing of sensors’ data. The microcontroller selected is MSP430G2553 TI launchpad.
@@ -17,7 +17,7 @@ The connection between devices are different. There are two kinds of protocols:
 >-	I2C: allow communication between sensors and microcontroller. Microcontroller ask for the data and sensors replies with it. 
 The aim of the project consists in develop a low-power system able to guide people in closed areas.
 
-##How to use:
+## How to use:
 
 >1) Connect MSP430G2553 to PC.
 >2) Load "ProcessingData" folder on the device with CCS (import-> CCS Project->...). 
