@@ -23,4 +23,4 @@ The aim of the project consists in develop a low-power system able to guide peop
 >2) Load "ProcessingSensors" folder on the device with CCS (import-> CCS Project->...). 
 >3) Open Qt Creator.
 >4) Load "Interface" folder on QT Creator.
->5) Press Play
+>5) Press Play.
