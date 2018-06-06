@@ -7,7 +7,9 @@ Devices could be divided in three parts:
 > -	Microcontroller: Takes the processing of sensors’ data. The microcontroller selected is MSP430G2553 TI launchpad.
 >
 > -	Sensors:
+>
 >	o	TSL2561: A luminosity sensor. Takes the measure of ambient light and send the data to microcontroller.
+>
 >	o	MMA8451: An accelerometer. Takes the measure of amount of acceleration given and send the data to microcontroller.
 >
 > -	Laptop: Receive the data, shows it in a graphic interface, and program the microcontroller to do a correct processing.
