@@ -9,6 +9,7 @@ CMD_SRCS += \
 ../lnk_msp430g2553.cmd 
 
 C_SRCS += \
+../PCD8544.c \
 ../i2c.c \
 ../main.c \
 ../mma8451.c \
@@ -16,6 +17,7 @@ C_SRCS += \
 ../uart.c 
 
 C_DEPS += \
+./PCD8544.d \
 ./i2c.d \
 ./main.d \
 ./mma8451.d \
@@ -23,6 +25,7 @@ C_DEPS += \
 ./uart.d 
 
 OBJS += \
+./PCD8544.obj \
 ./i2c.obj \
 ./main.obj \
 ./mma8451.obj \
@@ -30,6 +33,7 @@ OBJS += \
 ./uart.obj 
 
 OBJS__QUOTED += \
+"PCD8544.obj" \
 "i2c.obj" \
 "main.obj" \
 "mma8451.obj" \
@@ -37,6 +41,7 @@ OBJS__QUOTED += \
 "uart.obj" 
 
 C_DEPS__QUOTED += \
+"PCD8544.d" \
 "i2c.d" \
 "main.d" \
 "mma8451.d" \
@@ -44,6 +49,7 @@ C_DEPS__QUOTED += \
 "uart.d" 
 
 C_SRCS__QUOTED += \
+"../PCD8544.c" \
 "../i2c.c" \
 "../main.c" \
 "../mma8451.c" \

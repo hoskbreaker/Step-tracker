@@ -1,13 +1,19 @@
 #include <msp430.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "uart.h"
 #include "i2c.h"
 #include "tsl2561.h"
 #include "mma8451.h"
+#include "PCD8544.h"
 
 void timer_interrupt(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
 
 static volatile uint32_t ticks;
+static volatile uint8_t fila = PUNTO_FILA_INICIAL;
+static volatile uint8_t columna = PUNTO_COLUMNA_INICIAL;
 
 int normalizar(uint8_t x)
 {
@@ -39,7 +45,8 @@ int main()
 	DCOCTL = CALDCO_1MHZ;
 
 	/* 9600, N, 8, 1 */
-	init_uart();
+	//init_uart();
+	initLCD();
 
 	/* select SMCLK as clock source for timer A0, reset timer */
 	TA0CTL = TASSEL_2 | TACLR;
@@ -73,11 +80,22 @@ int main()
 	    eje_x=normalizar(MMA8451GetXAxis());
 	    eje_y=normalizar(MMA8451GetYAxis());
 	    eje_z=normalizar(MMA8451GetZAxis());
-		printf_uart("%d;%d;%d;%i\r\n",eje_x , eje_y, eje_z, tsl2561_get_lux(sensor));
+		//printf_uart("%d;%d;%d;%i\r\n",eje_x , eje_y, eje_z, tsl2561_get_lux(sensor));
+
+	    //muestra valores de los ejes por pantalla
+	    ShowAxisValue(eje_x,eje_y,eje_z);
+
+	    //----muestra mapa-----
+	    d=direccion(eje_y);
+	    //paso
+	    fila = paso(eje_z,fila);
+	    columna = paso (eje_y,columna);
+	    //punto inicial
+	    punto(fila,columna);
 
 		/* wait for ~0.125 s */
 		start = ticks;
-		while ((ticks - start) < 12*0.0125) //12*5 for 5s
+		while ((ticks - start) < 12*0.125) //12*5 for 5s
 			;
 	}
 

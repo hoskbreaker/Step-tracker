@@ -10,6 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./PCD8544.obj" \
 "./i2c.obj" \
 "./main.obj" \
 "./mma8451.obj" \
@@ -157,8 +158,8 @@ acelerometro.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "i2c.obj" "main.obj" "mma8451.obj" "tsl2561.obj" "uart.obj" 
-	-$(RM) "i2c.d" "main.d" "mma8451.d" "tsl2561.d" "uart.d" 
+	-$(RM) "PCD8544.obj" "i2c.obj" "main.obj" "mma8451.obj" "tsl2561.obj" "uart.obj" 
+	-$(RM) "PCD8544.d" "i2c.d" "main.d" "mma8451.d" "tsl2561.d" "uart.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
